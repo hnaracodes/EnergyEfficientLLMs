@@ -1,0 +1,24 @@
+# P1 selection (scripts/p1_select.py): one training run per task for each arm and seed.
+# Rules: docs/03 Method step 3 and docs/04 "Selection and training rules for P1".
+
+pool_runs: []                  # run ids whose attempts form the pool (P0b's main run), read from
+                               # <attempts_dir>/<run_id>.jsonl. Not P0c's or P0d's runs: their BF16
+                               # attempts on pool200 are not pool trajectories.
+
+paths:
+  attempts_dir: outputs/attempts
+  scores: outputs/p0d/scores.jsonl              # P0d scores; only probe Q3_K_M rows are used
+  score_choice: outputs/p0d/score_choice.json   # "chosen": the score the stability arms rank by
+  energy_model: outputs/p0a/energy_model.json   # fewest_joules_fallback
+  est_joules: outputs/p0a/est_joules.jsonl      # est_joules_q4 per attempt
+  out_dir: outputs/arms
+
+select:
+  pool_lists: [pool200]        # heldout100, verified100 and inrepo_test are refused
+  min_candidates: 4            # the P0b fallback is 2
+  alpha: 0.5                   # qtrace: weight on the cost rank, fixed before P1
+  cost: turns                  # qtrace cost rank and 2x2 split: turns, or joules if P0b's overlap rule says so
+  score_override: null         # kl_decision | kl_command | kl_mean: replaces score_choice.json's choice, recorded
+  seeds: [0, 1, 2]             # seed s sets the selection RNG (and the training RNG)
+  arms: [random, fewest_turns, fewest_joules, stable, qtrace, low_entropy, clean_format,
+         short_stable, short_unstable, long_stable, long_unstable]
