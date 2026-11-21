@@ -274,14 +274,27 @@ attempt start and end, plus run totals, marked `not_attributable`.
   (after `<parameter=command>\n`), and the top 10% BF16-entropy positions among model-written
   tokens. Tokens fixed by the template are never decision points. `kl_mean` over all model-written
   tokens is secondary, reported on the same replays. `stable`, `qtrace` and the 2x2 arms use the
-  primary score.
-- Before any continuation runs, report on the P0b pool: the within-task Spearman of the primary
-  score against turns, written tokens, estimated `Q4_K_M` joules and BF16 entropy; its `Q3_K_M` vs
-  `Q4_K_M` within-task rank agreement; and its turn-parity split-half reliability (Spearman-Brown
-  corrected). If |rho| > 0.8 against any of the four, H3 is answered negatively and the stability
-  arms are dropped before P1 (the rule from `docs/02_research_plan.md`). If reliability is below
-  about 0.5, the score is recorded as mostly noise, P0d ranks by `kl_mean` instead, and the switch
-  is written here before continuations start.
+  score chosen by the rule below, which is the primary score unless it fails.
+- **Candidate scores, frozen at three (2026-11-20, before any P0 data):** (1) `kl_decision`, the
+  primary score above; (2) `kl_command`, the mean KL over the model-written tokens of each
+  `command` value (`command_spans`; whole tool-call blocks are not used, because their
+  near-deterministic wrapper tokens would make many short commands score low); (3) `kl_mean`.
+  All use the `Q3_K_M` probe and come from one scoring pass (`qtrace/kl.py`). No other variant is added after seeing data. The reason
+  for the ordering: on T1 proxy trajectories (issue #1, 4B and 9B, MLX), within-task rank agreement
+  across probes rises from about 0.35-0.43 for `kl_decision` to 0.62-0.67 for `kl_command` and
+  0.68-0.76 for `kl_mean`, while the within-task Spearman against BF16 entropy rises from about
+  0.0-0.2 to 0.4-0.5 and 0.6.
+- Before any continuation runs, report for each candidate on the P0b pool: the within-task Spearman
+  against turns, written tokens, estimated `Q4_K_M` joules and BF16 entropy; the `Q3_K_M` vs
+  `Q4_K_M` within-task rank agreement; and the turn-parity split-half reliability (within-task
+  Spearman between the even-turn and odd-turn scores, Spearman-Brown corrected). Within-task
+  values are means over tasks with at least 3 successful runs, with the median alongside. A
+  candidate passes when |rho| <= 0.8 against all four, split-half reliability >= 0.5 and probe
+  agreement >= 0.5 (a ranking that flips with the probe is not a property of the trajectory).
+- The score is the first passing candidate in the order above. If none passes, H3 is answered
+  negatively and the stability arms are dropped before P1 (the rule from
+  `docs/02_research_plan.md`). The chosen score and every candidate's numbers are written here
+  before continuations start.
 - For each task, take the lowest- and highest-scoring trajectory and replay the first half of its
   turns in a fresh container. A replayed prefix is valid when every replayed command returns the
   same exit code and the final repo-state fingerprint matches the recording. Output text is compared
@@ -471,6 +484,8 @@ A draft, like `03` Stage 2, and fixed before S2 starts rather than before P1.
 
 - `KL(y)` decision positions, by a fixed rule: the `<tool_call>` token, the first 8 tokens of each
   `command` value, and positions above a fixed BF16-entropy threshold set from the P0b pool.
+  If P0d chose `kl_command`, `KL(y)` sums over the command-value tokens instead; if it chose `kl_mean`,
+  over all model-written tokens, which overlaps the energy term most.
 - `KL(y)` is a sum over those positions, never a per-token or per-decision mean, which can be
   lowered by adding predictable tokens or easy actions. The P0d selection score can be a mean
   because it ranks fixed runs, which cannot pad themselves. A sum grows with turns, so it overlaps
