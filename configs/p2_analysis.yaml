@@ -1,0 +1,39 @@
+# P1 headline pick and P2 analysis (docs/04, "Analysis plan for P1 and P2"). Read by
+# scripts/p1_pick_headline.py and scripts/p2_analyze.py; both refuse to run while a required value is null.
+
+# Non-inferiority margin on the resolve rate (a difference in [0, 1]). docs/04 sets it from P0b's measured
+# standard error and freezes it before P1, so it has no default.
+guard_margin: null
+
+# Share of a contrast's tasks that may be dropped because an attempt ended in end_reason "error" with no rerun.
+infra_error_cap: 0.05
+
+n_boot: 5000
+seed: 20261120
+alpha: 0.05
+
+# Energy upper bound: GPU joules + container CPU-seconds x host_cpu_tdp_w / host_vcpus. Both describe the
+# same physical CPU package(s): host_vcpus is the number of hardware threads the published TDP covers, which
+# can be more than the instance's 64 vCPUs. Required for P2.
+host_cpu_tdp_w: null
+host_vcpus: null
+
+# Secondary contrasts [arm, comparator] by hypothesis family (docs/03, The question). Each runs at every
+# profile where both arms and random have attempts, with Holm within the family. The resolve-rate guard is
+# always against random (docs/04: it applies to every hypothesis), not against the comparator. The per-task
+# length covariate docs/04 names for
+# H2/H3 is not applied: it is measured on pool tasks, and these contrasts are over held-out tasks.
+families:
+  H1a: [[fewest_turns, random]]
+  H1b: [[fewest_joules, random]]
+  H2: [[qtrace, fewest_turns]]
+  H3: [[stable, low_entropy], [stable, clean_format], [short_stable, short_unstable], [long_stable, long_unstable]]
+  H5: [[qtrace, fewest_joules]]
+
+# H4 (docs/03): these contrasts rerun on the grammar-constrained rows (records with grammar: true) at every
+# profile they ran at, each compared with the same contrast without grammar on the same tasks, with Holm within
+# H4. "headline" is the P1 pick; [headline, random] at Q4_K_M (docs/03 Cost option b) is required.
+h4_contrasts: [[headline, random]]
+
+# Energy claims (docs/04, Energy upper bound): a win counts only if it also holds under the upper bound.
+upper_bound_required: [H1b, H5]
