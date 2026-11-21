@@ -1,0 +1,35 @@
+{
+ "name": "energy_subrun15",
+ "seed": 20261119,
+ "size": 15,
+ "size_note": "fixed by 04 (P0a energy sub-run), drawn from pool200 minus pilot20: the Q4_K_M coefficients first rank pool200 runs for fewest_joules, and their held-out use gets its own estimator check (heldout691 minus heldout100)",
+ "by_repo": {
+  "aiohttp": 1,
+  "numpy": 3,
+  "orange3": 2,
+  "pandas": 6,
+  "pillow": 2,
+  "tornado": 1
+ },
+ "ids": [
+  "namanjain12/aiohttp_final:d904071c30737baa7189ed1c842c76954274c129",
+  "namanjain12/numpy_final:53facf327c7b2949a5f31c308fd66b0b1f24b615",
+  "namanjain12/numpy_final:ab22e0076608f4825bf9a3ca1b6a0a6a7a670d14",
+  "namanjain12/numpy_final:f880b1aa7583d7c3dfc111a8b79e7e7ba364baf2",
+  "namanjain12/orange3_final:4bba14da875c02bb569cea97414436b4af20c3d8",
+  "namanjain12/orange3_final:6b528a35480ff60a6d4b3772b0f4c791bf584d36",
+  "namanjain12/pandas_final:055651b99160191df9b3ab13f4f7a6370c32685f",
+  "namanjain12/pandas_final:2dcaadd61d6b246979078f4ae367aeb6ff2ca5e6",
+  "namanjain12/pandas_final:4e8306690e8c29080c1886442ffd209c259bcd3d",
+  "namanjain12/pandas_final:6bcb37ea06802816d4f315df60fa297c5f0a022c",
+  "namanjain12/pandas_final:8a8df02785cc3b7674ca6eeaaa33353b55cf2031",
+  "namanjain12/pandas_final:c271d4dd0b014c41bd91048fa6e8d33c5bf27b44",
+  "namanjain12/pillow_final:38be701a9ad295603b044c6ff577034333d5063f",
+  "namanjain12/pillow_final:920bcecd0ec6b57568a4ab9a5e04acdd9114dd25",
+  "namanjain12/tornado_final:c971a7da2c5924286eb5f94aa8b3d23bffe3b154"
+ ],
+ "sources": {
+  "r2e_gym": "R2E-Gym/R2E-Gym-Subset@2e8108ff942f24fcb5686badfaf7f9a8808566d5",
+  "swe_bench_verified": "princeton-nlp/SWE-bench_Verified@c104f840cc67f8b6eec6f759ebc8b2693d585d4a"
+ }
+}
