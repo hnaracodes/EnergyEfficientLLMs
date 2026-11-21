@@ -82,8 +82,9 @@ uses an energy-calibrated cost in the reward or evaluates the trained agent afte
 - **External checks:** SWE-bench Verified (500), Datacurve DeepSWE (113, reported as Python vs
   non-Python), Terminal-Bench 2.1 (89, on its own harness).
 - **Quantization profiles:** llama.cpp GGUF at one pinned version: `BF16`, `Q8_0`, `Q4_K_M`
-  (primary), `Q3_K_M`, plus `Q4_K_M` with the two DeltaNet gate tensors kept at 8-bit. MLX and AWQ
-  are secondary. Our uniform round-to-nearest quantizer is a harsh ablation only.
+  (primary), `Q3_K_M`, plus `Q4_K_M` with the DeltaNet gate tensor (`ssm_beta_alpha`, the fused
+  `in_proj_b`/`in_proj_a`) kept at 8-bit. MLX and AWQ are secondary. Our uniform round-to-nearest
+  quantizer is a harsh ablation only.
 - **Harness:** one bash tool in Qwen3.5's native XML call format; episodes stored as raw tokens;
   one parser for every runtime; "try again" sent as a tool response. Built on the MIT-licensed
   `mantra-energy` paper-2 harness, with new plugins for R2E-Gym and Datacurve.
@@ -275,7 +276,7 @@ secondary tier after the pilot and before any P1 result:
 ## Who does what (proposed)
 
 - Owner: the spending ceiling after the pilot; who builds the pilot harness; merges this plan.
-- Unowned, for the owner to assign: GGUF profile builds including the `ssm_alpha`/`ssm_beta`
+- Unowned, for the owner to assign: GGUF profile builds including the `ssm_beta_alpha`
   override; pinned vLLM and llama.cpp builds; EC2 operations and image pulls; per-turn energy hooks;
   the P0d replay path and repo-state fingerprints; the frozen seeded lists (including
   `inrepo_test`); the training-probe script; the SFT migration; the GGUF round trip on a LoRA-merged

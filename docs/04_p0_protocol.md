@@ -95,8 +95,10 @@ binning must use draws that are independent of the pass rates it compares.
 - Serving: vLLM for the large BF16 sampling in P0b; llama.cpp at one pinned commit for every
   comparison between precisions, BF16 included. llama.cpp splits `-c` across `-np` slots, so
   N slots at context C need `-c N*C` (16 x 64K = 1,048,576).
-- Profiles: `BF16` GGUF, `Q8_0`, `Q4_K_M`, `Q3_K_M`, and `Q4_K_M` with `ssm_alpha`/`ssm_beta`
-  overridden to Q8_0 (the gate-tensor ablation). Default `llama-quantize` flags, no imatrix in P0.
+- Profiles: `BF16` GGUF, `Q8_0`, `Q4_K_M`, `Q3_K_M`, and `Q4_K_M` with `ssm_beta_alpha` (the fused
+  `in_proj_b`/`in_proj_a`) at `Q8_0` (the gate-tensor ablation:
+  `llama-quantize --tensor-type ssm_beta_alpha=q8_0 <in> <out> Q4_K_M`). Default `llama-quantize`
+  flags otherwise, no imatrix in P0.
   The per-tensor type table of every file is saved with its results.
 
 ### Task sets (seeded ID lists saved before anything runs)
@@ -401,6 +403,17 @@ starts.
 - If the headline arm saw more supervised tokens than `random`, one token-matched rerun of that
   contrast is added; the H3 comparisons get an optional token-matched run in P1.
 
+### Test-file tripwire (`Grading.test_files_touched`)
+
+The grader applies the agent's whole diff, so a `conftest.py` or `pytest.ini` the agent adds still
+runs when the tests are collected. The flag records this; these rules neutralize it.
+
+- P0 and P1: every resolve rate is reported both overall and excluding flagged attempts, with the
+  flagged share per arm and profile next to it. A jump in that share is itself a finding.
+- Pools: a flagged successful run is never a selection candidate. The number excluded is reported
+  per task set. So P0b's pool criteria (c1, c2, the 4-success count and the projected pool) and
+  P0d's "at least 2 successful BF16 trajectories" count unflagged successes only.
+
 ### `random_fq` baseline (`03`, Baselines)
 
 Fake-quant 4-bit group-wise weights in the forward pass, applied to the merged weight (W + BA) with
@@ -468,6 +481,10 @@ host CPU's published TDP, pooled per resolved task. Both are reported.
 ### Stage 2 reward and compute (`03`, Stage 2)
 
 A draft, like `03` Stage 2, and fixed before S2 starts rather than before P1.
+
+- A rollout with `test_files_touched` gets reward 0, whatever the tests say. This closes the route RL
+  would otherwise find (editing test configuration), at the cost of rare legitimate edits to
+  `setup.cfg` or `tox.ini`, which the flag records.
 
 - `KL(y)` decision positions, by a fixed rule: the `<tool_call>` token, the first 8 tokens of each
   `command` value, and positions above a fixed BF16-entropy threshold set from the P0b pool.
