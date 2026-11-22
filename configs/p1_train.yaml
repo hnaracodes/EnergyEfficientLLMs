@@ -1,0 +1,31 @@
+# P1 LoRA SFT on multi-turn agent runs (scripts/p1_train_lora.py; docs/04, "Selection and training rules for P1").
+# Every arm and seed trains with these values; only the arm file and the seed change.
+
+model:
+  path: Qwen/Qwen3.5-4B          # HF id or local folder; the original Qwen3_5ForConditionalGeneration checkpoint loads
+                                 # as Qwen3_5ForCausalLM (text only; the vision tower and MTP head are dropped)
+
+train:
+  # Attention (8 full-attention layers), MLP (all 32) and the DeltaNet mixers (24 linear-attention layers).
+  targets: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj, in_proj_qkv, in_proj_z, out_proj]
+  include_gates: false           # in_proj_a / in_proj_b (DeltaNet write-strength and decay gates); open in docs/04
+  lora_r: 16
+  lora_alpha: 32
+  learning_rate: 1.0e-4
+  warmup_ratio: 0.05             # share of the run's steps
+  epochs: 2                      # steps = ceil(epochs x runs / episodes_per_step), the same for every arm
+  episodes_per_step: 8           # one episode per micro-batch, gradients accumulated over these
+  loss_norm: 32768               # fixed divisor of the summed token cross-entropy, the same for every arm;
+                                 # about one step's supervised tokens; set from the pilot before P1, then frozen
+  max_tokens: null               # null = no truncation; else cut at the last turn boundary at or before it
+  chunk: 2048                    # positions per logits chunk in the loss
+
+# random_fq baseline (docs/04; qtrace/fake_quant.py): on only for that run, with --arm random (writes random_fq_seed<s>)
+fake_quant:
+  enabled: false
+  table: null                    # the stock Q4_K_M GGUF of the base model, or the pinned data/quant_tables JSON
+
+paths:
+  arms_dir: outputs/arms
+  runs_dir: outputs/runs         # <run>/merged/ is the F32 merge (qtrace.sft.save_merged), about 16 GB
+                                 # per 4B arm and seed

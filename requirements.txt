@@ -7,4 +7,7 @@ pyyaml
 pytest
 nvidia-ml-py              # provides the `pynvml` module used by qtrace/energy.py (NVIDIA GPUs only)
 # bitsandbytes            # optional: only for the bnb8 / bnb4 precisions, Linux + CUDA only
+# gguf                    # optional: only for fake_quant (random_fq); install the gguf-py of the llama.cpp
+                          # checkout that converts the models (pip install -e llama.cpp/gguf-py), so its
+                          # qwen35 tensor names match convert_hf_to_gguf.py
 
