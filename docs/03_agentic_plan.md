@@ -248,7 +248,11 @@ Post a preprint as soon as P2 has a clean answer. Related papers are appearing m
   quantized-rollout reward and narrowing the claim to A with B measured only. If P0d is
   inconclusive, the stability arms stay exploratory, out of the headline and the RL default.
 - The pool is too small or misses the tasks quantization breaks: use the fallbacks (fewer required
-  successes, a DeepSWE-Preview teacher pool, the 9B model), then stop if all fail.
+  successes, a DeepSWE-Preview teacher pool, the 9B model), then stop if all fail. DeepSWE-Preview
+  trained on R2E-Gym-Subset's train split, which holds all 691 held-out tasks
+  (`data/task_lists/deepswe_heldout_overlap.json`; the tasks its run actually drew are not
+  published). A pool from it therefore carries teacher-level exposure of the held-out repos, and
+  SWE-bench Verified is reported next to any base-model comparison.
 
 ## Cost
 

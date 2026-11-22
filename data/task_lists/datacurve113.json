@@ -1,0 +1,587 @@
+{
+ "name": "datacurve113",
+ "size": 113,
+ "size_note": "every Datacurve DeepSWE task; 03 gives 113, reported as Python vs non-Python",
+ "ids": [
+  "abs-module-cache-flags",
+  "abs-stepped-slices",
+  "actionlint-action-pinning-lint",
+  "adaptix-name-mapping-aliases",
+  "aiomonitor-task-snapshots-diff",
+  "anko-default-function-arguments",
+  "anko-typed-variable-bindings",
+  "arcane-drift-detection-baselines",
+  "arktype-json-schema-refs-dependencies",
+  "awilix-async-container-initialization",
+  "bandit-incremental-cache-control",
+  "bandit-interprocedural-taint-checks",
+  "bandit-structured-nosec-directives",
+  "boa-hierarchical-evaluation-cancellation",
+  "cattrs-partial-structuring-recovery",
+  "clack-async-autocomplete-options",
+  "claude-code-by-agents-recursive-delegation",
+  "cliffy-config-file-parsing",
+  "csstree-shorthand-expansion-compression",
+  "dasel-html-document-format",
+  "dateutil-rfc5545-timezone-interop",
+  "drizzle-orm-window-function-builders",
+  "dynamodb-toolbox-conditional-attribute-requirements",
+  "dynamodb-toolbox-lazy-recursive-schemas",
+  "effect-sse-httpapi-streaming",
+  "eicrud-keyset-pagination-cursor",
+  "etree-xml-diff-patch",
+  "expr-try-catch-errors",
+  "fastapi-deprecation-response-headers",
+  "fastapi-implicit-head-options",
+  "fd-deterministic-multi-key-sorting",
+  "geo-shapeindex-serialization",
+  "go-critic-doc-link-checker",
+  "go-genai-streamed-function-args",
+  "go-git-worktree-merge-conflicts",
+  "goreleaser-retry-publish-auditing",
+  "gql-incremental-graphql-delivery",
+  "happy-dom-abort-pending-body-reads",
+  "happy-dom-deterministic-intersectionobserver",
+  "helm-array-merge-strategies",
+  "helm-unified-manifest-stream",
+  "httpx-deterministic-cookie-store",
+  "httpx-multipart-response-parsing",
+  "httpx-streaming-json-iteration",
+  "igel-persist-feature-schema",
+  "ink-grid-box-layout",
+  "ipython-session-bundle-replay",
+  "katex-multicolumn-array-spans",
+  "kcp-go-multiplexed-kcp-streams",
+  "kea-atomic-signal-selectors",
+  "kgateway-consistent-hash-policy",
+  "kombu-single-active-consumer-priority",
+  "kombu-virtual-queue-dead-lettering",
+  "koota-composite-trait-aspects",
+  "koota-deferred-mutation-buffer",
+  "koota-entity-snapshot-rollback",
+  "koota-pair-relation-tracking",
+  "koota-query-predicates",
+  "kysely-window-grouping-helpers",
+  "langchain-request-coalescing",
+  "mashumaro-flattened-dataclass-fields",
+  "meriyah-explicit-resource-declarations",
+  "mnamer-daemon-watch-lifecycle",
+  "mobly-grouped-test-barriers",
+  "narwhals-rolling-window-suite",
+  "numba-stencil-boundary-modes",
+  "obsidian-linter-auto-table-of-contents",
+  "obsidian-linter-link-format-conversion",
+  "obsidian-linter-scoped-ignore-markers",
+  "ofetch-per-origin-circuit-breaker",
+  "onedump-dump-encryption-pipeline",
+  "opa-rego-rule-profiling",
+  "opa-template-string-reconstruction",
+  "optique-conditional-option-dependencies",
+  "oxvg-structural-selector-preservation",
+  "participle-grammar-conflict-analysis",
+  "pebble-durability-wait-apis",
+  "pest-character-class-coalescing",
+  "prometheus-transactional-reload-status",
+  "prometheus-typed-label-sorting",
+  "psd-tools-blend-range-api",
+  "pwntools-tube-multiplexing",
+  "python-statemachine-state-data-scoping",
+  "query-persist-restored-query-state",
+  "quill-shared-toolbar-focus",
+  "returns-validated-error-accumulation",
+  "scc-bounded-memory-spilling",
+  "scriggo-method-declarations",
+  "skrub-duration-encoding",
+  "sql-formatter-bigquery-pipe-formatting",
+  "sqlfmt-create-table-ddl-formatting",
+  "sqlite-utils-safe-import-checkpoints",
+  "superjson-error-stack-serialization",
+  "task-task-graph-export",
+  "tengo-callable-instance-isolation",
+  "tengo-destructuring-bindings",
+  "termenv-preserve-ansi-resets",
+  "testem-bail-on-test-failure",
+  "testem-per-launcher-reports",
+  "textual-kitty-key-phases",
+  "textual-richlog-follow-state",
+  "tomlkit-toml-table-converters",
+  "true-myth-iterable-collection-combinators",
+  "ts-pattern-match-each",
+  "updo-policy-alerting",
+  "valibot-recursive-schema-composition",
+  "vitest-duration-sharding",
+  "vulture-persistent-analysis-cache",
+  "wasmi-trap-coredumps",
+  "wazero-multi-module-snapshots",
+  "yaegi-go-embed-directives",
+  "yjs-map-conflict-detection",
+  "ytt-jsonpath-query-api"
+ ],
+ "by_language": {
+  "go": 34,
+  "javascript": 5,
+  "python": 34,
+  "rust": 5,
+  "typescript": 35
+ },
+ "python": 34,
+ "non_python": 79,
+ "tasks": {
+  "abs-module-cache-flags": {
+   "language": "go",
+   "python": false
+  },
+  "abs-stepped-slices": {
+   "language": "go",
+   "python": false
+  },
+  "actionlint-action-pinning-lint": {
+   "language": "go",
+   "python": false
+  },
+  "adaptix-name-mapping-aliases": {
+   "language": "python",
+   "python": true
+  },
+  "aiomonitor-task-snapshots-diff": {
+   "language": "python",
+   "python": true
+  },
+  "anko-default-function-arguments": {
+   "language": "go",
+   "python": false
+  },
+  "anko-typed-variable-bindings": {
+   "language": "go",
+   "python": false
+  },
+  "arcane-drift-detection-baselines": {
+   "language": "go",
+   "python": false
+  },
+  "arktype-json-schema-refs-dependencies": {
+   "language": "typescript",
+   "python": false
+  },
+  "awilix-async-container-initialization": {
+   "language": "typescript",
+   "python": false
+  },
+  "bandit-incremental-cache-control": {
+   "language": "python",
+   "python": true
+  },
+  "bandit-interprocedural-taint-checks": {
+   "language": "python",
+   "python": true
+  },
+  "bandit-structured-nosec-directives": {
+   "language": "python",
+   "python": true
+  },
+  "boa-hierarchical-evaluation-cancellation": {
+   "language": "rust",
+   "python": false
+  },
+  "cattrs-partial-structuring-recovery": {
+   "language": "python",
+   "python": true
+  },
+  "clack-async-autocomplete-options": {
+   "language": "typescript",
+   "python": false
+  },
+  "claude-code-by-agents-recursive-delegation": {
+   "language": "typescript",
+   "python": false
+  },
+  "cliffy-config-file-parsing": {
+   "language": "typescript",
+   "python": false
+  },
+  "csstree-shorthand-expansion-compression": {
+   "language": "javascript",
+   "python": false
+  },
+  "dasel-html-document-format": {
+   "language": "go",
+   "python": false
+  },
+  "dateutil-rfc5545-timezone-interop": {
+   "language": "python",
+   "python": true
+  },
+  "drizzle-orm-window-function-builders": {
+   "language": "typescript",
+   "python": false
+  },
+  "dynamodb-toolbox-conditional-attribute-requirements": {
+   "language": "typescript",
+   "python": false
+  },
+  "dynamodb-toolbox-lazy-recursive-schemas": {
+   "language": "typescript",
+   "python": false
+  },
+  "effect-sse-httpapi-streaming": {
+   "language": "typescript",
+   "python": false
+  },
+  "eicrud-keyset-pagination-cursor": {
+   "language": "typescript",
+   "python": false
+  },
+  "etree-xml-diff-patch": {
+   "language": "go",
+   "python": false
+  },
+  "expr-try-catch-errors": {
+   "language": "go",
+   "python": false
+  },
+  "fastapi-deprecation-response-headers": {
+   "language": "python",
+   "python": true
+  },
+  "fastapi-implicit-head-options": {
+   "language": "python",
+   "python": true
+  },
+  "fd-deterministic-multi-key-sorting": {
+   "language": "rust",
+   "python": false
+  },
+  "geo-shapeindex-serialization": {
+   "language": "go",
+   "python": false
+  },
+  "go-critic-doc-link-checker": {
+   "language": "go",
+   "python": false
+  },
+  "go-genai-streamed-function-args": {
+   "language": "go",
+   "python": false
+  },
+  "go-git-worktree-merge-conflicts": {
+   "language": "go",
+   "python": false
+  },
+  "goreleaser-retry-publish-auditing": {
+   "language": "go",
+   "python": false
+  },
+  "gql-incremental-graphql-delivery": {
+   "language": "python",
+   "python": true
+  },
+  "happy-dom-abort-pending-body-reads": {
+   "language": "typescript",
+   "python": false
+  },
+  "happy-dom-deterministic-intersectionobserver": {
+   "language": "typescript",
+   "python": false
+  },
+  "helm-array-merge-strategies": {
+   "language": "go",
+   "python": false
+  },
+  "helm-unified-manifest-stream": {
+   "language": "go",
+   "python": false
+  },
+  "httpx-deterministic-cookie-store": {
+   "language": "typescript",
+   "python": false
+  },
+  "httpx-multipart-response-parsing": {
+   "language": "python",
+   "python": true
+  },
+  "httpx-streaming-json-iteration": {
+   "language": "python",
+   "python": true
+  },
+  "igel-persist-feature-schema": {
+   "language": "python",
+   "python": true
+  },
+  "ink-grid-box-layout": {
+   "language": "typescript",
+   "python": false
+  },
+  "ipython-session-bundle-replay": {
+   "language": "python",
+   "python": true
+  },
+  "katex-multicolumn-array-spans": {
+   "language": "javascript",
+   "python": false
+  },
+  "kcp-go-multiplexed-kcp-streams": {
+   "language": "go",
+   "python": false
+  },
+  "kea-atomic-signal-selectors": {
+   "language": "typescript",
+   "python": false
+  },
+  "kgateway-consistent-hash-policy": {
+   "language": "go",
+   "python": false
+  },
+  "kombu-single-active-consumer-priority": {
+   "language": "python",
+   "python": true
+  },
+  "kombu-virtual-queue-dead-lettering": {
+   "language": "python",
+   "python": true
+  },
+  "koota-composite-trait-aspects": {
+   "language": "typescript",
+   "python": false
+  },
+  "koota-deferred-mutation-buffer": {
+   "language": "typescript",
+   "python": false
+  },
+  "koota-entity-snapshot-rollback": {
+   "language": "python",
+   "python": true
+  },
+  "koota-pair-relation-tracking": {
+   "language": "typescript",
+   "python": false
+  },
+  "koota-query-predicates": {
+   "language": "typescript",
+   "python": false
+  },
+  "kysely-window-grouping-helpers": {
+   "language": "typescript",
+   "python": false
+  },
+  "langchain-request-coalescing": {
+   "language": "python",
+   "python": true
+  },
+  "mashumaro-flattened-dataclass-fields": {
+   "language": "python",
+   "python": true
+  },
+  "meriyah-explicit-resource-declarations": {
+   "language": "typescript",
+   "python": false
+  },
+  "mnamer-daemon-watch-lifecycle": {
+   "language": "python",
+   "python": true
+  },
+  "mobly-grouped-test-barriers": {
+   "language": "python",
+   "python": true
+  },
+  "narwhals-rolling-window-suite": {
+   "language": "python",
+   "python": true
+  },
+  "numba-stencil-boundary-modes": {
+   "language": "python",
+   "python": true
+  },
+  "obsidian-linter-auto-table-of-contents": {
+   "language": "typescript",
+   "python": false
+  },
+  "obsidian-linter-link-format-conversion": {
+   "language": "typescript",
+   "python": false
+  },
+  "obsidian-linter-scoped-ignore-markers": {
+   "language": "typescript",
+   "python": false
+  },
+  "ofetch-per-origin-circuit-breaker": {
+   "language": "typescript",
+   "python": false
+  },
+  "onedump-dump-encryption-pipeline": {
+   "language": "go",
+   "python": false
+  },
+  "opa-rego-rule-profiling": {
+   "language": "go",
+   "python": false
+  },
+  "opa-template-string-reconstruction": {
+   "language": "go",
+   "python": false
+  },
+  "optique-conditional-option-dependencies": {
+   "language": "typescript",
+   "python": false
+  },
+  "oxvg-structural-selector-preservation": {
+   "language": "rust",
+   "python": false
+  },
+  "participle-grammar-conflict-analysis": {
+   "language": "go",
+   "python": false
+  },
+  "pebble-durability-wait-apis": {
+   "language": "go",
+   "python": false
+  },
+  "pest-character-class-coalescing": {
+   "language": "rust",
+   "python": false
+  },
+  "prometheus-transactional-reload-status": {
+   "language": "typescript",
+   "python": false
+  },
+  "prometheus-typed-label-sorting": {
+   "language": "go",
+   "python": false
+  },
+  "psd-tools-blend-range-api": {
+   "language": "python",
+   "python": true
+  },
+  "pwntools-tube-multiplexing": {
+   "language": "python",
+   "python": true
+  },
+  "python-statemachine-state-data-scoping": {
+   "language": "python",
+   "python": true
+  },
+  "query-persist-restored-query-state": {
+   "language": "typescript",
+   "python": false
+  },
+  "quill-shared-toolbar-focus": {
+   "language": "typescript",
+   "python": false
+  },
+  "returns-validated-error-accumulation": {
+   "language": "python",
+   "python": true
+  },
+  "scc-bounded-memory-spilling": {
+   "language": "go",
+   "python": false
+  },
+  "scriggo-method-declarations": {
+   "language": "go",
+   "python": false
+  },
+  "skrub-duration-encoding": {
+   "language": "python",
+   "python": true
+  },
+  "sql-formatter-bigquery-pipe-formatting": {
+   "language": "typescript",
+   "python": false
+  },
+  "sqlfmt-create-table-ddl-formatting": {
+   "language": "python",
+   "python": true
+  },
+  "sqlite-utils-safe-import-checkpoints": {
+   "language": "python",
+   "python": true
+  },
+  "superjson-error-stack-serialization": {
+   "language": "typescript",
+   "python": false
+  },
+  "task-task-graph-export": {
+   "language": "go",
+   "python": false
+  },
+  "tengo-callable-instance-isolation": {
+   "language": "go",
+   "python": false
+  },
+  "tengo-destructuring-bindings": {
+   "language": "go",
+   "python": false
+  },
+  "termenv-preserve-ansi-resets": {
+   "language": "go",
+   "python": false
+  },
+  "testem-bail-on-test-failure": {
+   "language": "javascript",
+   "python": false
+  },
+  "testem-per-launcher-reports": {
+   "language": "javascript",
+   "python": false
+  },
+  "textual-kitty-key-phases": {
+   "language": "python",
+   "python": true
+  },
+  "textual-richlog-follow-state": {
+   "language": "python",
+   "python": true
+  },
+  "tomlkit-toml-table-converters": {
+   "language": "python",
+   "python": true
+  },
+  "true-myth-iterable-collection-combinators": {
+   "language": "typescript",
+   "python": false
+  },
+  "ts-pattern-match-each": {
+   "language": "typescript",
+   "python": false
+  },
+  "updo-policy-alerting": {
+   "language": "go",
+   "python": false
+  },
+  "valibot-recursive-schema-composition": {
+   "language": "typescript",
+   "python": false
+  },
+  "vitest-duration-sharding": {
+   "language": "typescript",
+   "python": false
+  },
+  "vulture-persistent-analysis-cache": {
+   "language": "python",
+   "python": true
+  },
+  "wasmi-trap-coredumps": {
+   "language": "rust",
+   "python": false
+  },
+  "wazero-multi-module-snapshots": {
+   "language": "go",
+   "python": false
+  },
+  "yaegi-go-embed-directives": {
+   "language": "go",
+   "python": false
+  },
+  "yjs-map-conflict-detection": {
+   "language": "javascript",
+   "python": false
+  },
+  "ytt-jsonpath-query-api": {
+   "language": "go",
+   "python": false
+  }
+ },
+ "sources": {
+  "datacurve_hf": "datacurve/deep-swe@6d6f134460c137e24c6bb7e1e69954116ea9dbb3",
+  "datacurve_github_language": "github.com/datacurve-ai/deep-swe@0b9fabbb63b9104d678fe965e1632f2dd9eaa2ea"
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "name": "pilot20",
+ "seed": 20261119,
+ "size": 20,
+ "size_note": "fixed by 04 (P0b pilot), drawn from pool200",
+ "by_repo": {
+  "aiohttp": 2,
+  "numpy": 4,
+  "orange3": 3,
+  "pandas": 7,
+  "pillow": 3,
+  "tornado": 1
+ },
+ "ids": [
+  "namanjain12/aiohttp_final:259edc369075de63e6f3a4eaade058c62af0df71",
+  "namanjain12/aiohttp_final:96c415c353c85b2327541bc6858d853de8e8b333",
+  "namanjain12/numpy_final:92aa4080f2a925ff6d03d0b9f80460a53d4c111c",
+  "namanjain12/numpy_final:af671c4aada0888e9e38ce0836ed119686e8c5ee",
+  "namanjain12/numpy_final:e744b031c20a9ca8fd550f2c51637cdbc8a40307",
+  "namanjain12/numpy_final:f7eb37f16d7abff1d11987dced498ce923088001",
+  "namanjain12/orange3_final:4ab6177446ca9f8897f22cd71257e7d7ab134843",
+  "namanjain12/orange3_final:65b195a8a1f18858c0412407782dbaa48a1f6795",
+  "namanjain12/orange3_final:79b3ccde29f928066fcf6df9f92054176eb0838c",
+  "namanjain12/pandas_final:08895fa88cb5a64390cca4db3659806c23b08a19",
+  "namanjain12/pandas_final:1843cf23c7aa74248d956ae28a30abfc2c0af8e8",
+  "namanjain12/pandas_final:19c5eea5db0046276bfc0eef8a67febf090eeaaf",
+  "namanjain12/pandas_final:5e7cc40dc2a9a012b1c649a91b5f36bcb764eabb",
+  "namanjain12/pandas_final:8af96fc3ff51bf2686f9e24029ab615fe2a5e089",
+  "namanjain12/pandas_final:9843926e39dee88f689afc51cbf0f2fdc232dcd3",
+  "namanjain12/pandas_final:eb9a3e81a946d5921e4458632e9632239ac8e8d1",
+  "namanjain12/pillow_final:6bd3ed439a2f7f542df52c39211ae37a48b75238",
+  "namanjain12/pillow_final:869b786db158c869d0b771d4f546b6cf1d24e009",
+  "namanjain12/pillow_final:b9b5d39f2b32cec75b9cf96b882acb7a77a4ed4b",
+  "namanjain12/tornado_final:6403cb91a06b9b629bd89e71249b2cae30ceb267"
+ ],
+ "sources": {
+  "r2e_gym": "R2E-Gym/R2E-Gym-Subset@2e8108ff942f24fcb5686badfaf7f9a8808566d5",
+  "swe_bench_verified": "princeton-nlp/SWE-bench_Verified@c104f840cc67f8b6eec6f759ebc8b2693d585d4a"
+ }
+}

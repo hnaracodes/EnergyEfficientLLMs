@@ -1,0 +1,15 @@
+{
+ "train_size": 4578,
+ "heldout_size": 691,
+ "overlap_size": 691,
+ "heldout_not_in_train": [],
+ "sources": {
+  "deepswe_train": "R2E-Gym/R2E-Gym-Subset@e8b9fcbce43eaca0dc2c0d4798ee6f3e965f590a",
+  "heldout": "R2E-Gym/R2E-Gym-Subset@2e8108ff942f24fcb5686badfaf7f9a8808566d5"
+ },
+ "evidence": [
+  "huggingface.co/agentica-org/DeepSWE-Preview@4887205c533cd162baac7ba758159cfc3304cf94 README.md: metadata 'datasets: R2E-Gym/R2E-Gym-Subset'; Data section: '4.5K problems from a subset of R2E-Gym', with repos shared with SWE-Bench-Verified filtered out.",
+  "github.com/agentica-project/rllm@0ffd38407f30d492563bc950df0658386372c415 examples/swe/train_deepswe_32b.sh: data.train_files=R2E_Gym_Subset.parquet, written by scripts/data/swe_dataset.py from load_dataset('R2E-Gym/R2E-Gym-Subset') train split, no revision and no id filter.",
+  "Not published: the tasks the run actually drew. The same script sets data.filter_overlong_prompts=True (max_prompt_length 4096) and train_batch_size 8, and the card reports 200 RL steps, so the visited set can be smaller than the train split. The blog post (Notion) renders only with JavaScript and was not read; the card mirrors its Data section."
+ ]
+}
